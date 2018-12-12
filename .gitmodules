@@ -1,0 +1,18 @@
+[submodule "libdap"]
+	path = libdap
+	url = https://github.com/kelvinblockchain/libdap
+[submodule "libdap-chain"]
+	path = libdap-chain
+	url = https://github.com/kelvinblockchain/libdap-chain
+[submodule "libdap-chain-crypto"]
+	path = libdap-chain-crypto
+	url = https://github.com/kelvinblockchain/libdap-chain-crypto
+[submodule "https://github.com/kelvinblockchain/libdap-chain-block"]
+	path = https://github.com/kelvinblockchain/libdap-chain-block
+	url = https://github.com/kelvinblockchain/libdap-chain-block
+[submodule "libdap-chain-block"]
+	path = libdap-chain-block
+	url = https://github.com/kelvinblockchain/libdap-chain-block
+[submodule "libdap-chain-net"]
+	path = libdap-chain-net
+	url = https://github.com/kelvinblockchain/libdap-chain-net
