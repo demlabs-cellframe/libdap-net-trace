@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(libdap-chain-net-test C)
+project(libdap-net-trace C)
 
 file(GLOB SRCS *.c)
 file(GLOB HEADERS *.h)
