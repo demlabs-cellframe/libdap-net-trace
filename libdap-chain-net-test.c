@@ -22,8 +22,8 @@ int main(int argc, char **argv)
 //    dap_common_init("net-test.log");
 //    dap_config_init("./dist");
 //    dap_chain_net_init();
-    bool use_ping_test = false;
-    bool use_tracepath_test = false;
+    bool use_ping_test = true;
+    bool use_tracepath_test = true;
     bool use_traceroute_test = true;
     int ch, res;
     char *str;
@@ -50,7 +50,10 @@ int main(int argc, char **argv)
         dap_print_module_name("Ping utils");
         int repeat = 3;
         res = ping_util(ip, repeat);
-        str = g_strdup_printf("ping_util(\"%s\", repeat=%d)=%.3lf msec", ip, repeat, res / 1000.);
+        if(res==-1)
+            str = g_strdup_printf("ping_util(\"%s\", repeat=%d)=-1", ip, repeat);
+        else
+            str = g_strdup_printf("ping_util(\"%s\", repeat=%d)=%.3lf msec", ip, repeat, res / 1000.);
         dap_test_msg(str);
         g_free(str);
         dap_pass_msg("Ping utils");
@@ -68,13 +71,14 @@ int main(int argc, char **argv)
 
     if(use_traceroute_test) {
         int hops, dtime_usec;
-        printf("Traceroute utils START\n");//dap_print_module_name("Traceroute utils");
+
+        dap_print_module_name("Traceroute utils");
         res = traceroute_util(ip, &hops, &dtime_usec);
         str = g_strdup_printf("traceroute_util(\"%s\")=%d hop(s)=%d latency=%.3lf ms", ip, res, hops,
                 dtime_usec / 1000.);
-        printf(str);//dap_test_msg(str);
+        dap_test_msg(str);
         g_free(str);
-        printf("\nTraceroute utils END\n");//dap_pass_msg("Traceroute utils");
+        dap_pass_msg("Traceroute utils");
     }
     return 0;
 }
